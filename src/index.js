@@ -29,7 +29,7 @@ app.post("/signup", async (req, res) => {
 
     await collection.insertMany([data]);
 
-    res.render("home");
+    res.render("index");
 });
 
 app.post("/login", async (req, res) => {
@@ -37,7 +37,7 @@ app.post("/login", async (req, res) => {
         const check = await collection.findOne({ username:req.body.username });
 
         if (check.password===req.body.password) {
-            res.render("home");
+            res.render("index");
         } else {
             res.send("Wrong Pass"); 
         }
